@@ -1,0 +1,21 @@
+<h1>Formulaire D'inscription</h1>
+<p>Veuillez remplir le formulaire suivant afin de vous enregistrez au cours de lecture de votre choix</p>
+<% form_for  do |form| %>
+<%= form.label :vorname %>
+<%= form.text_field :vorname %>
+<%= form.label :name %>
+<%= form.text_field :name %>
+<%= form.label :email %>
+<%= form.text_field :email %>
+<%= form.label :phone %>
+<%= form.text_field :phone %>
+<%= form.fields_for :adress do |e| %>
+<% e.text_field :street %>
+<% e.text_field :city %>
+<% e.text_field :zipcode %>
+<% e.text_field :state %>
+<% end %>
+<%= form.label :gender %>
+<%= form.text_field :gender %>
+<%= form.submit %>
+<% end %>
