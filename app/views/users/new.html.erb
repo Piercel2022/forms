@@ -1,2 +1,48 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<section class="container">
+<h1>Formulaire D'inscription</h1>
+<p>Veuillez remplir le formulaire suivant afin de vous enregistrez au cours de lecture de votre choix</p>
+<%= form_for User.new  do |form| %>
+
+<div class="prenom">
+<%= form.label :Prenom %>
+<%= form.text_field :vorname %><br></div>
+
+<div class="nom">
+<%= form.label :Nom %>
+<%= form.text_field :name %><br></div>
+
+<div class="email">
+<%= form.label :Email %>
+<%= form.email_field :email %><br></div>
+
+<div class="phone">
+<%= form.label :Telefone %>
+<%= form.telephone_field :phone %><br></div>
+
+<div class="address_container">
+<%= fields_for :adress, @user do |contact_detail_form| %>
+<div class="street">
+<%= contact_detail_form.label :street, "Rue" %>
+<%= contact_detail_form.text_field :street %><br></div>
+<div class="city">
+<%= contact_detail_form.label :city, "Ville" %>
+<%= contact_detail_form.text_field :city %><br></div>
+<div class="code">
+<%= contact_detail_form.label :zipcode, "Code" %>
+<%= contact_detail_form.text_field :zipcode %><br></div>
+<div class="state">
+<%= contact_detail_form.label :Etat, "Etat" %>
+<%= contact_detail_form.text_field :state %><br></div>
+<% end %>
+
+<div class="gender">
+<%= form.label :gender, "Genre" %>
+<%= form.text_field :gender %><br></div>
+
+<div class="meeting">
+<%= form.label :meeting, "Veuillez choisir votre temps: " %>
+<%= form.select(:meeting, [['Mardi de 16h -17h30', 'Adulte'], ['Mercredi de 15h- 17h', 'Jeunes Lecteurs'],['Jeudi de 16h30 - 18h', 'Adulte'], ['Samedi de 15h30- 17h', 'Ados'] ]) %><br></div>
+<div class="envoyer">
+<input type="Submit", value="Envoyer" %></div>
+<% end %>
+</section>

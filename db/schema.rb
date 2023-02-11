@@ -10,14 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_03_222141) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_10_093122) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
   enable_extension "plpgsql"
-
-  # Custom types defined in this database.
-  # Note that some types may not work with other database engines. Be careful if changing database.
-  create_enum "gender", ["homme", "femme"]
 
   create_table "users", force: :cascade do |t|
     t.string "vorname"
@@ -28,6 +24,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_03_222141) do
     t.string "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "meeting"
+    t.string "street"
+    t.string "city"
+    t.string "zipcode"
+    t.string "state"
   end
 
 end
